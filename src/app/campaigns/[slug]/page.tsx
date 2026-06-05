@@ -5,7 +5,7 @@ import { notFound } from "next/navigation";
 import {
   FadeIn,
   Tag,
-  SectionImage,
+  ImageGallery,
 } from "@/components/ui";
 
 import { MDXContent } from "@/lib/mdx";
@@ -85,20 +85,15 @@ export default async function CampaignPage({
       )}
 
       <div className="grid gap-12 lg:grid-cols-[minmax(280px,420px)_1fr] lg:gap-20">
-        {meta.coverImage && (
+        {(meta.coverImage || (meta.gallery && meta.gallery.length > 0)) && (
           <FadeIn>
-            <div className="relative group overflow-hidden border border-border lg:sticky lg:top-28">
-              <div className="relative aspect-3/4 overflow-hidden">
-                <SectionImage
-                  src={meta.coverImage}
-                  alt={meta.title}
-                />
-
-                {meta.fgAccent && (
-                  <div className="absolute inset-0 bg-linear-to-t from-(--fg-accent) to-transparent group-hover:opacity-0 transition-opacity duration-300 opacity-20" />
-                )}
-              </div>
-            </div>
+            <ImageGallery 
+              coverImage={meta.coverImage} 
+              gallery={meta.gallery} 
+              slug={slug} 
+              title={meta.title} 
+              variant="campaign" 
+            />
           </FadeIn>
         )}
 

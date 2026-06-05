@@ -1,11 +1,8 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import { FadeIn } from "@/components/ui/FadeIn";
-import { Tag } from "@/components/ui";
-import { PlaceholderImage } from "@/components/ui/media/PlaceholderImage";
+import { FadeIn, Tag, ImageGallery } from "@/components/ui";
 import { MDXContent } from "@/lib/mdx";
-import { resolveImagePath } from "@/lib/images";
 import { getArchiveItem, getAllSlugs } from "@/lib/content";
 
 interface PageProps {
@@ -45,13 +42,12 @@ export default async function ArchiveDetailPage({ params }: PageProps) {
       </FadeIn>
 
       <FadeIn>
-        <PlaceholderImage
-          src={resolveImagePath(meta.coverImage, slug, "archive")}
-          alt={meta.title}
-          variant="archive"
-          aspectRatio="wide"
-          className="mb-12 max-h-[40vh] md:max-h-[50vh]"
-          priority
+        <ImageGallery 
+          coverImage={meta.coverImage} 
+          gallery={meta.gallery} 
+          slug={slug} 
+          title={meta.title} 
+          variant="archive" 
         />
       </FadeIn>
 

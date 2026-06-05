@@ -8,11 +8,11 @@ export function Hero() {
   return (
     <section id="hero" className="grain hero-vignette relative flex min-h-[90vh] items-end overflow-hidden pb-28 md:min-h-screen md:pb-40">
       {/* Background Image */}
-      <div className="absolute inset-0 z-0 -top-1/5">
+      <div className="absolute inset-0 z-0 -top-1/5 bg-linear-to-b from-zinc-800 to-background">
         <img
           src="/images/hero-bg.jpg"
           alt="IMPURITY Photograph"
-          className="h-full w-full object-cover object-bottom"
+          className="h-full w-full object-contain object-center md:object-cover md:object-bottom"
         />
         <div className="absolute inset-0 bg-linear-to-t from-background via-background/60 to-background/20" />
       </div>

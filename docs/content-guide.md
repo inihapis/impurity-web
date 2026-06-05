@@ -1,44 +1,24 @@
-# Panduan Konten IMPURITY
+# Content Guide IMPURITY (MDX)
 
-Dokumen ini menjelaskan struktur data dan cara memperbarui konten di website IMPURITY.
+Sistem website IMPURITY menggunakan file **MDX** (Markdown + JSX) untuk mengelola konten seperti rilis musik (discography), jurnal, arsip, dan campaign. Panduan ini menjelaskan struktur Metadata (Frontmatter) yang berada di bagian paling atas setiap file MDX tersebut.
 
-## Struktur Warna Accent (Baru)
+## Struktur Direktori Konten
 
-Untuk memberikan atmosfer yang unik pada setiap rilis atau campaign, kami menggunakan sistem dua warna accent:
+Semua konten MDX harus disimpan di dalam folder `content/` sesuai dengan jenisnya:
+- `content/releases/` untuk karya musik (Single, EP, Album).
+- `content/journal/` untuk artikel, catatan editorial, atau berita.
+- `content/campaigns/` untuk acara, campaign, atau gigs.
+- `content/archive/` untuk arsip galeri/foto.
 
-- `bgAccent`: Warna background dominan (disarankan warna gelap/deep).
-- `fgAccent`: Warna light/terang untuk teks accent, border, dan efek glow.
+## Cara Menggunakan Template
 
-Contoh pada MDX:
-```yaml
-bgAccent: "#1a0000"
-fgAccent: "#ff3333"
-```
+Di dalam folder `docs/templates/` terdapat contoh file `.mdx` siap pakai. Anda cukup:
+1. Menyalin (copy) file template yang relevan ke dalam folder konten (misalnya `content/journal/`).
+2. Mengubah nama file sesuai judul (gunakan format huruf kecil dan tanda strip, contoh: `tulisan-baru.mdx`).
+3. Mengubah isi Metadata (di antara tanda `---`) dan isi teks Markdown di bawahnya.
 
-## Kategori Konten
-
-### 1. Music (`content/releases/`)
-Digunakan untuk rilis lagu/single/EP.
-- **Tipe:** `single`, `ep`, `album`, `demo`.
-- **Streaming:** Pastikan link Spotify, Apple, dan YouTube tersedia.
-
-### 2. Campaigns (`content/campaigns/`)
-Inisiatif atau kolaborasi band (contoh: Peluk Bumi).
-- **Status:** `active`, `completed`, `upcoming`.
-- **Images:** Gunakan `coverImage` untuk thumbnail dan header detail.
-
-### 3. Archive (`content/archive/`)
-Dokumentasi sejarah, BTS, dan evolusi visual.
-- **Kategori:** `flyer`, `visual`, `rehearsal`, `bts`, `logo`.
-
-## Manajemen Gambar
-
-Semua gambar harus diletakkan di `public/images/` dengan subfolder yang sesuai:
-- `/members/` - Foto personil.
-- `/releases/` - Artwork rilis.
-- `/campaigns/` - Visual inisiatif.
-- `/logo/` - Logotype dan Monogram.
-
-## Update Timeline
-
-Timeline di halaman About dikelola melalui `src/data/site.ts`. Setiap event harus memiliki `year`, `month`, `title`, dan `description`.
+## Template Tersedia
+- [release-template.mdx](./templates/release-template.mdx)
+- [journal-template.mdx](./templates/journal-template.mdx)
+- [campaign-template.mdx](./templates/campaign-template.mdx)
+- [archive-template.mdx](./templates/archive-template.mdx)

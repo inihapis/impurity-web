@@ -4,6 +4,7 @@ import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
+import { MobileNav } from "@/components/layout/MobileNav";
 import { siteConfig } from "@/data/site";
 import "./globals.css";
 
@@ -50,7 +51,7 @@ export default function RootLayout({
       lang="id"
       className={`${inter.variable} ${cormorant.variable} ${jetbrains.variable} h-full`}
     >
-      <body className="flex min-h-full flex-col bg-background text-foreground antialiased">
+      <body className="flex min-h-full flex-col bg-background text-foreground antialiased pb-16 lg:pb-0">
         <a href="#main-content" className="skip-link">
           Skip to content
         </a>
@@ -59,6 +60,7 @@ export default function RootLayout({
           {children}
         </main>
         <Footer />
+        <MobileNav />
         <Analytics />
         <SpeedInsights />
       </body>

@@ -1,11 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { FadeIn } from "@/components/ui/FadeIn";
-import { Tag } from "@/components/ui";
-import { PlaceholderImage } from "@/components/ui/media/PlaceholderImage";
+import { FadeIn, Tag, ImageGallery } from "@/components/ui";
 import { MDXContent } from "@/lib/mdx";
-import { resolveImagePath } from "@/lib/images";
 import { getJournalPost, getAllSlugs } from "@/lib/content";
 
 interface PageProps {
@@ -44,17 +41,17 @@ export default async function JournalPostPage({ params }: PageProps) {
         </Link>
       </FadeIn>
       <FadeIn>
-        <PlaceholderImage
-          src={resolveImagePath(meta.coverImage, slug, "journal")}
-          alt={meta.title}
-          variant="journal"
-          aspectRatio="wide"
-          className="mb-12 max-h-[40vh] md:max-h-[50vh]"
+        <ImageGallery 
+          coverImage={meta.coverImage} 
+          gallery={meta.gallery} 
+          slug={slug} 
+          title={meta.title} 
+          variant="journal" 
         />
       </FadeIn>
 
       <FadeIn delay={0.08}>
-        <header className="prose-editorial mx-auto mb-12 max-w-3xl">
+        <header className="prose-editorial mx-auto mb-12 mt-16 max-w-3xl">
           <p className="font-mono mb-4 text-[10px] tracking-[0.2em] text-muted uppercase">
             {meta.author ?? "IMPURITY"} ·{" "}
             {new Date(meta.publishedAt).toLocaleDateString("id-ID", {

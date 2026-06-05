@@ -8,6 +8,7 @@ export interface ContentMeta {
   featured?: boolean;
   bgAccent?: string;
   fgAccent?: string;
+  gallery?: { src: string; alt: string }[];
 }
 
 export interface ReleaseMeta extends ContentMeta {

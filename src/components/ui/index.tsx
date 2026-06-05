@@ -10,6 +10,7 @@ export * from "./sections/SectionHeader";
 export * from "./media/PlaceholderImage";
 export * from "./media/SectionImage";
 export * from "./media/ReleaseArtwork";
+export * from "./media/ImageGallery";
 
 //Accents
 export * from "./accents/AccentBar";

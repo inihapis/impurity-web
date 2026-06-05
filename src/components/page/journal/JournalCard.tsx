@@ -30,6 +30,8 @@ export function JournalCard({ post }: JournalCardProps) {
           variant="journal"
           aspectRatio="wide"
           className="border-0"
+          label={meta.coverImage ? undefined : "No Thumbnail"}
+          sublabel={meta.coverImage ? undefined : "Gambar belum tersedia"}
         />
         <AccentPanel />
       </div>

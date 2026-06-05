@@ -26,11 +26,12 @@ export const navigation: NavItem[] = [
 ];
 
 export const socialLinks: SocialLink[] = [
-  { label: "Instagram", href: "https://instagram.com/impurity.official/" },
-  { label: "YouTube", href: "https://www.youtube.com/@impurity-official/" },
-  { label: "Spotify", href: "https://open.spotify.com/artist/55J3kf8bWb9Jth1g8Wbj1P?si=j1V9Ov8fSOCzoUAOGS8SEA" },
-  { label: "Facebook", href: "https://facebook.com/impurity.official/" },
-  { label: "Soundcloud", href: "https://soundcloud.com/impurity-official/" },
+  { label: "Instagram", href: "https://instagram.com/impuritybdg" },
+  { label: "Facebook", href: "https://facebook.com/impuritybdg" },
+  { label: "X", href: "https://twitter.com/impuritybdg" },
+  { label: "Bandcamp", href: "https://impuritybdg.bandcamp.com" },
+  { label: "Discord", href: "https://discord.gg/PzXhPcDZ2u" },
+  { label: "YouTube", href: "https://youtube.com/@impuritybdg" },
 ];
 
 export const members: Member[] = [

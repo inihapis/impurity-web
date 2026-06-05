@@ -7,7 +7,6 @@ import { navigation, siteConfig } from "@/data/site";
 
 export function Header() {
   const pathname = usePathname();
-  const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
@@ -16,21 +15,10 @@ export function Header() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  useEffect(() => {
-    setMenuOpen(false);
-  }, [pathname]);
-
-  useEffect(() => {
-    document.body.style.overflow = menuOpen ? "hidden" : "";
-    return () => {
-      document.body.style.overflow = "";
-    };
-  }, [menuOpen]);
-
   return (
     <header
       className={`fixed top-0 right-0 left-0 z-50 transition-colors duration-300 ${
-        scrolled || menuOpen
+        scrolled
           ? "border-b border-border bg-background/90 backdrop-blur-md"
           : "bg-transparent"
       }`}
@@ -63,52 +51,7 @@ export function Header() {
             );
           })}
         </nav>
-
-        <button
-          type="button"
-          className="touch-target font-mono flex min-h-11 min-w-11 flex-col items-center justify-center gap-1.5 p-2 text-[10px] tracking-[0.15em] text-foreground uppercase lg:hidden"
-          onClick={() => setMenuOpen((open) => !open)}
-          aria-expanded={menuOpen}
-          aria-controls="mobile-menu"
-          aria-label={menuOpen ? "Close menu" : "Open menu"}
-        >
-          <span
-            className={`block h-px w-5 bg-foreground transition-transform ${menuOpen ? "translate-y-[7px] rotate-45" : ""}`}
-          />
-          <span
-            className={`block h-px w-5 bg-foreground transition-opacity ${menuOpen ? "opacity-0" : ""}`}
-          />
-          <span
-            className={`block h-px w-5 bg-foreground transition-transform ${menuOpen ? "-translate-y-[7px] -rotate-45" : ""}`}
-          />
-        </button>
       </div>
-
-      {menuOpen && (
-        <nav
-          id="mobile-menu"
-          className="fixed inset-0 top-16 flex flex-col gap-1 bg-background px-5 pt-4 pb-8 lg:hidden"
-          aria-label="Mobile"
-        >
-          {navigation.map((item) => {
-            const active =
-              item.href === "/"
-                ? pathname === "/"
-                : pathname.startsWith(item.href);
-            return (
-              <Link
-                key={item.href}
-                href={item.href}
-                className={`touch-target font-display flex min-h-[52px] items-center border-b border-border text-2xl ${
-                  active ? "text-foreground" : "text-muted"
-                }`}
-              >
-                {item.label}
-              </Link>
-            );
-          })}
-        </nav>
-      )}
     </header>
   );
 }

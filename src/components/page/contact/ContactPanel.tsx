@@ -74,24 +74,27 @@ export function ContactPanel() {
         <FadeIn delay={0.1}>
           <section>
             <h2 className="font-display mb-6 text-2xl text-foreground">
-              Press Kit
+              Media & Assets
             </h2>
             <p className="mb-6 text-sm leading-relaxed text-muted">
-              Press kit dan logo pack tersedia via email. Kirim permintaan ke
-              alamat press dengan subjek &quot;Press Kit Request&quot;.
+              Press kit dan logo pack tersedia dan dapat diunduh langsung melalui Google Drive.
             </p>
             <div className="flex flex-wrap gap-3">
               <a
-                href={`mailto:${siteConfig.pressEmail}?subject=Press%20Kit%20Request&body=Hi%20IMPURITY%20team%2C%0A%0AI%20would%20like%20to%20request%20the%20press%20kit%20and%20logo%20pack.%0A%0AOrganization%3A%20%0AName%3A%20%0A`}
+                href={siteConfig.mediaKitUrl}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="touch-target inline-flex min-h-11 items-center justify-center border border-border px-6 py-3 font-mono text-xs tracking-[0.15em] text-foreground uppercase transition-colors hover:border-foreground"
               >
-                Request Press Kit
+                Media Kit
               </a>
               <a
-                href={`mailto:${siteConfig.pressEmail}?subject=Logo%20Pack%20Request`}
+                href={siteConfig.logoPackUrl}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="touch-target inline-flex min-h-11 items-center justify-center border border-border px-6 py-3 font-mono text-xs tracking-[0.15em] text-foreground uppercase transition-colors hover:border-foreground"
               >
-                Request Logo Pack
+                Logo Pack
               </a>
             </div>
           </section>
