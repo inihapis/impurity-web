@@ -39,45 +39,47 @@ export function MobileNav() {
   );
 
   return (
-    <div className="lg:hidden">
+    <div className="lg:hidden ">
       {/* Bottom Navigation Bar */}
-      <nav className="fixed bottom-0 left-0 right-0 z-50 flex h-[calc(4rem+env(safe-area-inset-bottom,1rem))] items-center justify-around border-t border-border bg-background/95 pb-[env(safe-area-inset-bottom,1rem)] backdrop-blur-md">
-        {mainNavItems.map((item) => {
-          const active =
-            item.href === "/" ? pathname === "/" : pathname.startsWith(item.href);
-          return (
-            <Link
-              key={item.href}
-              href={item.href}
-              className={`flex h-full flex-1 flex-col items-center justify-center gap-1 transition-colors ${
-                active ? "text-foreground" : "text-muted hover:text-foreground"
-              }`}
-            >
-              {/* Replace with actual SVGs if preferred, for now using simple geometric or generic representations, or just text */}
-              <span className="font-mono text-[10px] tracking-wider uppercase">
-                {item.label}
-              </span>
-              {active && (
-                <span className="h-[2px] w-4 rounded-full bg-foreground" />
-              )}
-            </Link>
-          );
-        })}
-        
-        <button
-          onClick={() => setSheetOpen(true)}
-          className={`flex h-full flex-1 flex-col items-center justify-center gap-1 transition-colors ${
-            sheetOpen ? "text-foreground" : "text-muted hover:text-foreground"
-          }`}
-          aria-label="More options"
-        >
-          <span className="font-mono text-[10px] tracking-wider uppercase">
-            More
-          </span>
-          {sheetOpen && (
-            <span className="h-[2px] w-4 rounded-full bg-foreground" />
-          )}
-        </button>
+      <nav className="fixed bottom-0 left-0 right-0 z-50 flex flex-col border-t border-border bg-background/95 backdrop-blur-md">
+        <div className="flex h-16 items-center justify-around pb-6">
+
+          {mainNavItems.map((item) => {
+            const active =
+              item.href === "/" ? pathname === "/" : pathname.startsWith(item.href);
+            return (
+              <Link
+                key={item.href}
+                href={item.href}
+                className={`flex h-full flex-1 flex-col items-center justify-center gap-1 transition-colors ${
+                  active ? "text-foreground" : "text-muted hover:text-foreground"
+                }`}
+              >
+                {/* Replace with actual SVGs if preferred, for now using simple geometric or generic representations, or just text */}
+                <span className="font-mono text-[10px] tracking-wider uppercase">
+                  {item.label}
+                </span>
+                {active && (
+                  <span className="h-[2px] w-4 rounded-full bg-foreground" />
+                )}
+              </Link>
+            );
+          })}
+          <button
+            onClick={() => setSheetOpen(true)}
+            className={`flex h-full flex-1 flex-col items-center justify-center gap-1 transition-colors ${
+              sheetOpen ? "text-foreground" : "text-muted hover:text-foreground"
+            }`}
+            aria-label="More options"
+          >
+            <span className="font-mono text-[10px] tracking-wider uppercase">
+              More
+            </span>
+            {sheetOpen && (
+              <span className="h-[2px] w-4 rounded-full bg-foreground" />
+            )}
+          </button>
+        </div>
       </nav>
 
       {/* Bottom Sheet Overlay */}
@@ -98,7 +100,7 @@ export function MobileNav() {
               animate={{ y: 0 }}
               exit={{ y: "100%" }}
               transition={{ type: "spring", damping: 25, stiffness: 200 }}
-              className="fixed bottom-0 left-0 right-0 z-50 flex max-h-[80vh] flex-col rounded-t-2xl border-t border-border bg-background pb-[calc(2rem+env(safe-area-inset-bottom,2rem))] pt-3 px-6 shadow-2xl"
+              className="fixed bottom-0 left-0 right-0 z-50 flex max-h-[80vh] flex-col rounded-t-2xl border-t border-border bg-background pb-12 pt-3 px-6 shadow-2xl"
             >
               {/* Handle Bar */}
               <div className="mx-auto mb-6 h-1 w-12 rounded-full bg-border" />
