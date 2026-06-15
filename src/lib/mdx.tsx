@@ -2,6 +2,8 @@ import { MDXRemote } from "next-mdx-remote/rsc";
 import remarkGfm from "remark-gfm";
 import Link from "next/link";
 
+import Image from "next/image";
+
 const components = {
   h2: (props: React.HTMLAttributes<HTMLHeadingElement>) => (
     <h2
@@ -16,13 +18,13 @@ const components = {
     />
   ),
   p: (props: React.HTMLAttributes<HTMLParagraphElement>) => (
-    <p className="mb-5 text-base leading-relaxed text-muted" {...props} />
+    <p className="mb-5 text-base leading-relaxed text-muted max-w-full break-words" {...props} />
   ),
   ul: (props: React.HTMLAttributes<HTMLUListElement>) => (
-    <ul className="mb-5 ml-5 list-disc space-y-2 text-muted" {...props} />
+    <ul className="mb-5 ml-5 list-disc space-y-2 text-muted max-w-full break-words" {...props} />
   ),
   ol: (props: React.HTMLAttributes<HTMLOListElement>) => (
-    <ol className="mb-5 ml-5 list-decimal space-y-2 text-muted" {...props} />
+    <ol className="mb-5 ml-5 list-decimal space-y-2 text-muted max-w-full break-words" {...props} />
   ),
   li: (props: React.HTMLAttributes<HTMLLIElement>) => (
     <li className="leading-relaxed" {...props} />
@@ -57,6 +59,18 @@ const components = {
   hr: () => <hr className="my-10 border-border" />,
   strong: (props: React.HTMLAttributes<HTMLElement>) => (
     <strong className="font-medium text-foreground" {...props} />
+  ),
+  img: (props: any) => (
+    <span className="relative my-8 block overflow-hidden border border-border bg-surface shadow-[0_0_20px_rgba(0,0,0,0.3)]">
+      <Image
+        src={props.src || ""}
+        alt={props.alt || "Article Image"}
+        width={1200}
+        height={675}
+        sizes="(max-width: 768px) 100vw, 80vw"
+        className="w-full h-auto object-cover grayscale transition-all duration-700 hover:grayscale-0"
+      />
+    </span>
   ),
 };
 

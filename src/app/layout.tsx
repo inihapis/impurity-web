@@ -33,6 +33,9 @@ export const metadata: Metadata = {
     template: `%s — ${siteConfig.name}`,
   },
   description: siteConfig.description,
+  icons: {
+    icon: "/images/logo/monogram-black.png",
+  },
   openGraph: {
     title: siteConfig.name,
     description: siteConfig.description,

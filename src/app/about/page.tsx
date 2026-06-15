@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { FadeIn } from "@/components/ui/FadeIn";
 import { SectionHeader } from "@/components/ui";
 import { members, timeline, manifesto } from "@/data/site";
@@ -21,30 +22,34 @@ export default function AboutPage() {
 
       <FadeIn delay={0.1}>
         <div className="mb-20 grid gap-10 lg:grid-cols-2">
-          <section className="prose-editorial">
-            <p className="text-base leading-relaxed text-muted md:text-lg">
-              <span className="font-bold text-foreground">IMPURITY</span> merupakan band deathcore asal <span className="font-bold text-foreground underline">Bandung</span> yang terbentuk pada awal 2023 dari pertemuan beberapa orang dalam organisasi kampus berbasis seni tradisional.
+          <section className="prose-editorial flex flex-col justify-center">
+            <p className="text-base leading-relaxed text-foreground/90 md:text-lg md:leading-loose">
+              <span className="font-bold text-foreground">IMPURITY</span> merupakan band deathcore asal <span className="font-bold text-foreground underline decoration-border/50 underline-offset-4">Bandung</span> yang terbentuk pada awal 2023 dari pertemuan beberapa orang dalam organisasi kampus berbasis seni tradisional.
             </p>
 
-            <p className="mt-5 text-base leading-relaxed text-muted md:text-lg">
+            <p className="mt-5 text-base leading-relaxed text-foreground/90 md:text-lg md:leading-loose">
               Berangkat dari selera dan keresahan yang sama, kami membangun ruang eksplorasi yang memadukan musik ekstrem dengan elemen tradisional sebagai bentuk ekspresi yang jujur dan kontras.
             </p>
 
-            <p className="mt-5 text-base leading-relaxed text-muted md:text-lg">
+            <p className="mt-5 text-base leading-relaxed text-foreground/90 md:text-lg md:leading-loose">
               Nama <span className="font-bold text-foreground italic">IMPURITY</span> berarti ketidakmurnian (sesuatu yang tercemar, rusak, dan gelap). Filosofi tersebut menjadi fondasi musikalitas, identitas visual, serta arsip kreatif yang kami bangun di luar musik itu sendiri.
             </p>
 
-            <p className="mt-5 text-base leading-relaxed text-muted md:text-lg">
+            <p className="mt-5 text-base leading-relaxed text-foreground/90 md:text-lg md:leading-loose">
               <span className="font-bold text-foreground">Dimas</span> sebagai komposer utama membentuk arah musikal deathcore <span className="font-bold text-foreground">IMPURITY</span>, sementara <span className="font-bold text-foreground">River</span> menangani identitas visual, logo, dan penulisan lirik.
             </p>
           </section>
 
-          <div className="relative aspect-4/3 overflow-hidden border border-border bg-surface">
-            <img
+          <div className="relative aspect-4/3 overflow-hidden border border-border bg-surface group shadow-[0_0_40px_rgba(0,0,0,0.5)]">
+            <Image
               src="/images/about/band-photo.jpg"
               alt="IMPURITY Band Photo"
-              className="h-full w-full object-cover grayscale transition-all duration-700 hover:grayscale-0"
+              fill
+              priority
+              sizes="(max-width: 768px) 100vw, 50vw"
+              className="object-cover grayscale transition-all duration-700 group-hover:grayscale-0 group-hover:scale-105"
             />
+            <div className="pointer-events-none absolute inset-0 ring-1 ring-inset ring-white/10 mix-blend-overlay"></div>
           </div>
         </div>
       </FadeIn>
@@ -110,10 +115,12 @@ export default function AboutPage() {
               <div className="group overflow-hidden border border-border bg-surface transition-colors hover:border-foreground/25">
                 <div className="relative aspect-4/5 overflow-hidden">
                   {member.image ? (
-                    <img
+                    <Image
                       src={member.image}
                       alt={member.name}
-                      className="h-full w-full object-cover grayscale transition-all duration-500 group-hover:scale-105 group-hover:grayscale-0 brightness-100 group-hover:brightness-110"
+                      fill
+                      sizes="(max-width: 640px) 50vw, 20vw"
+                      className="object-cover grayscale transition-all duration-500 group-hover:scale-105 group-hover:grayscale-0 brightness-90 group-hover:brightness-100"
                     />
                   ) : (
                     <div className="flex h-full w-full items-center justify-center bg-muted/10">

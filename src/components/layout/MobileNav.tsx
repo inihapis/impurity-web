@@ -119,14 +119,16 @@ export function MobileNav() {
               </div>
 
               <div className="flex-1 overflow-y-auto">
-                <div className="flex flex-col gap-4">
+                <div className="grid grid-cols-3 gap-3">
                   {moreNavItems.map((item) => (
                     <Link
                       key={item.href}
                       href={item.href}
-                      className="font-display flex items-center border-b border-border/50 pb-4 text-2xl text-foreground transition-colors hover:text-muted"
+                      className="flex flex-col items-center justify-center rounded-xl border border-border/50 bg-surface/30 py-6 px-2 text-center transition-all hover:bg-surface hover:border-border"
                     >
-                      {item.label}
+                      <span className="font-display text-lg text-foreground">
+                        {item.label}
+                      </span>
                     </Link>
                   ))}
                 </div>
@@ -135,14 +137,14 @@ export function MobileNav() {
                   <h3 className="font-mono mb-4 text-[10px] tracking-[0.2em] text-muted uppercase">
                     Connect
                   </h3>
-                  <div className="flex flex-col gap-3">
+                  <div className="grid grid-cols-2 gap-3">
                     {socialLinks.map((link) => (
                       <a
                         key={link.href}
                         href={link.href}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="font-mono text-sm tracking-wider text-muted hover:text-foreground"
+                        className="flex items-center justify-center rounded-lg border border-border/30 bg-surface/10 p-3 font-mono text-xs tracking-wider text-muted transition-colors hover:bg-surface hover:text-foreground"
                       >
                         {link.label}
                       </a>

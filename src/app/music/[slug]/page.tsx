@@ -146,9 +146,10 @@ export default async function ReleasePage({
                     <li
                       key={credit}
                       className="text-sm text-muted"
-                    >
-                      {credit}
-                    </li>
+                      dangerouslySetInnerHTML={{
+                        __html: credit.replace(/\*\*(.*?)\*\*/g, '<span class="font-display tracking-wider font-bold text-lg text-foreground">  $1</span>'),
+                      }}
+                    />
                   ))}
                 </ul>
               </section>
