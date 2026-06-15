@@ -50,6 +50,16 @@ Dokumen ini mencatat implementasi fitur dari *Rencana Pengembangan Website* (ber
 | Aksesibilitas | ✅ | Skip link, focus-visible, reduced motion |
 | Navigasi keyboard | ✅ | HTML semantik, urutan tab |
 
+### Fase 6 — Optimasi Visual & Performa (Tambahan) ✅
+
+| Fitur | Status | Catatan |
+|-------|--------|---------|
+| Optimasi Gambar | ✅ | Mengonversi tag img standar ke `next/image` untuk LCP lebih cepat |
+| Responsivitas MDX | ✅ | Image, Paragraph, dan List dibatasi `max-w-full` dan `break-words` |
+| Mobile Bottom Sheet | ✅ | Layout "More" disederhanakan dari kolom menjadi grid responsif |
+| Fix Horizontal Scroll | ✅ | Overflow handling di root CSS dan parser bold dinamis di Credits MDX |
+| Pembersihan Aset | ✅ | Folder `docs/bahan` dihapus karena aset telah dipindah ke `content` dan `public` |
+
 ## Berkas Baru / Penting
 
 ```
@@ -59,6 +69,7 @@ src/components/media/PlaceholderImage.tsx
 src/components/media/ReleaseArtwork.tsx
 src/app/archive/[slug]/page.tsx
 src/lib/images.ts
+src/lib/mdx.tsx
 docs/*.md
 ```
 
@@ -66,12 +77,10 @@ docs/*.md
 
 - **Arsip**: dari anchor `#slug` → halaman detail `/archive/[slug]`
 - **Kontak**: formulir dihapus → saluran kontak langsung
-- **Press kit**: unduhan ZIP dihapus → permintaan melalui email
+- **Aset Bahan**: Semua materi mentah di folder `bahan` dihapus dari direktori proyek karena sudah di-deploy ke rute masing-masing.
 
 ## Langkah Selanjutnya (Opsional)
 
-1. Unggah gambar asli ke `public/images/`
-2. Isi `coverImage` / `artwork` di frontmatter MDX
-3. Integrasi Decap CMS untuk editor non-teknis
-4. Analitik (Plausible / Vercel Analytics)
-5. Gambar Open Graph per halaman
+1. Integrasi Decap CMS untuk editor non-teknis
+2. Analitik tambahan (Plausible)
+3. Gambar Open Graph spesifik per halaman untuk keperluan *sharing* media sosial
